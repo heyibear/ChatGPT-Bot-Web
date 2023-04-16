@@ -11,7 +11,7 @@ One-Click to deploy well-designed ChatGPT web UI on Vercel.
 
 [Demo](https://chat-gpt-next-web.vercel.app/) / [Issues](https://github.com/heyibear/ChatGPT-Bot-Web/issues) / [Join Discord](https://discord.gg/zrhvHCr79N) / [Buy Me a Coffee](https://www.buymeacoffee.com/heyibear)
 
-[演示](https://chat-gpt-next-web.vercel.app/) / [反馈](https://github.com/heyibear/ChatGPT-Bot-Web/issues) / [QQ 群](https://user-images.githubusercontent.com/16968934/231095592-330adc52-0337-4c13-8452-938ec169e367.jpeg) / [打赏开发者](https://user-images.githubusercontent.com/16968934/227772541-5bcd52d8-61b7-488c-a203-0330d8006e2b.jpg)
+[演示](https://chat-gpt-next-web.vercel.app/) / [反馈](https://github.com/heyibear/ChatGPT-Bot-Web/issues) / [QQ 群](https://user-images.githubusercontent.com/16968934/231789746-41f34d05-6ef9-43f3-a1d1-ff109d4c3c14.jpg) / [打赏开发者](https://user-images.githubusercontent.com/16968934/227772541-5bcd52d8-61b7-488c-a203-0330d8006e2b.jpg)
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fheyibear%2FChatGPT-Bot-Web&env=OPENAI_API_KEY&env=CODE&project-name=ChatGPT-Bot-Web&repository-name=ChatGPT-Bot-Web)
 
@@ -97,6 +97,7 @@ We recommend that you follow the steps below to re-deploy:
 - Choose and deploy in Vercel again, [please see the detailed tutorial](./docs/vercel-cn.md).
 
 ### Enable Automatic Updates
+
 After forking the project, due to the limitations imposed by Github, you need to manually enable Workflows and Upstream Sync Action on the Actions page of the forked project. Once enabled, automatic updates will be scheduled every hour:
 
 ![Automatic Updates](./docs/images/enable-actions.jpg)
@@ -104,6 +105,7 @@ After forking the project, due to the limitations imposed by Github, you need to
 ![Enable Automatic Updates](./docs/images/enable-actions-sync.jpg)
 
 ### Manually Updating Code
+
 If you want to update instantly, you can check out the [Github documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) to learn how to synchronize a forked project with upstream code.
 
 You can star or watch this project or follow author to get release notifictions in time.
@@ -134,17 +136,11 @@ Access passsword, separated by comma.
 
 ### `BASE_URL` (optional)
 
-> Default: `api.openai.com`
+> Default: `https://api.openai.com`
+
+> Examples: `http://your-openai-proxy.com`
 
 Override openai api request base url.
-
-### `PROTOCOL` (optional)
-
-> Default: `https`
-
-> Values: `http` | `https`
-
-Override openai api request protocol.
 
 ## Development
 
