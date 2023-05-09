@@ -5,13 +5,15 @@ import { EmojiAvatar } from "./emoji";
 import styles from "./new-chat.module.scss";
 
 import LeftIcon from "../icons/left.svg";
-import AddIcon from "../icons/lightning.svg";
+import LightningIcon from "../icons/lightning.svg";
+import EyeIcon from "../icons/eye.svg";
 
 import { useLocation, useNavigate } from "react-router-dom";
-import { createEmptyMask, Mask, useMaskStore } from "../store/mask";
+import { Mask, useMaskStore } from "../store/mask";
 import Locale from "../locales";
 import { useAppConfig, useChatStore } from "../store";
 import { MaskAvatar } from "./mask";
+import { useCommand } from "../command";
 
 function getIntersectionArea(aRect: DOMRect, bRect: DOMRect) {
   const xmin = Math.max(aRect.x, bRect.x);
@@ -107,8 +109,19 @@ export function NewChat() {
 
   const startChat = (mask?: Mask) => {
     chatStore.newSession(mask);
-    navigate(Path.Chat);
+    setTimeout(() => navigate(Path.Chat), 1);
   };
+
+  useCommand({
+    mask: (id) => {
+      try {
+        const mask = maskStore.get(parseInt(id));
+        startChat(mask ?? undefined);
+      } catch {
+        console.error("[New Chat] failed to create chat from mask id=", id);
+      }
+    },
+  });
 
   return (
     <div className={styles["new-chat"]}>
@@ -148,18 +161,20 @@ export function NewChat() {
       <div className={styles["sub-title"]}>{Locale.NewChat.SubTitle}</div>
 
       <div className={styles["actions"]}>
-        <input
-          className={styles["search-bar"]}
-          placeholder={Locale.NewChat.More}
-          type="text"
-          onClick={() => navigate(Path.Masks)}
-        />
-
         <IconButton
           text={Locale.NewChat.Skip}
           onClick={() => startChat()}
-          icon={<AddIcon />}
+          icon={<LightningIcon />}
           type="primary"
+          shadow
+        />
+
+        <IconButton
+          className={styles["more"]}
+          text={Locale.NewChat.More}
+          onClick={() => navigate(Path.Masks)}
+          icon={<EyeIcon />}
+          bordered
           shadow
         />
       </div>

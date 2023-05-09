@@ -4,7 +4,7 @@ const cn = {
   WIP: "该功能仍在开发中……",
   Error: {
     Unauthorized:
-      "现在是未授权状态，请点击左下角[设置](/#/settings)按钮输入访问密码。",
+      "访问密码不正确或为空，请前往[设置](/#/settings)页输入正确的访问密码，或者填入你自己的 OpenAI API Key。",
   },
   ChatItem: {
     ChatItemCount: (count: number) => `${count} 条对话`,
@@ -78,6 +78,7 @@ const cn = {
         tr: "Türkçe",
         jp: "日本語",
         de: "Deutsch",
+        vi: "Vietnamese",
       },
     },
     Avatar: "头像",
@@ -116,8 +117,11 @@ const cn = {
       Edit: "编辑",
       Modal: {
         Title: "提示词列表",
-        Add: "增加一条",
+        Add: "新建",
         Search: "搜索提示词",
+      },
+      EditModal: {
+        Title: "编辑提示词",
       },
     },
     HistoryCount: {
@@ -145,7 +149,7 @@ const cn = {
     },
     AccessCode: {
       Title: "访问密码",
-      SubTitle: "已开启加密访问",
+      SubTitle: "管理员已开启加密访问",
       Placeholder: "请输入访问密码",
     },
     Model: "模型 (model)",
@@ -221,7 +225,15 @@ const cn = {
     ConfirmNoShow: "确认禁用？禁用后可以随时在设置中重新启用。",
     Title: "挑选一个面具",
     SubTitle: "现在开始，与面具背后的灵魂思维碰撞",
-    More: "搜索更多",
+    More: "查看全部",
+  },
+
+  UI: {
+    Confirm: "确认",
+    Cancel: "取消",
+    Close: "关闭",
+    Create: "新建",
+    Edit: "编辑",
   },
 };
 
