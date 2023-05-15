@@ -5,7 +5,7 @@
 
 一键免费部署你的私人 ChatGPT 网页应用。
 
-[演示 Demo](https://chat-gpt-next-web.vercel.app/) / [反馈 Issues](https://github.com/heyibear/ChatGPT-Bot-Web/issues) / [加入 Discord](https://discord.gg/zrhvHCr79N) / [QQ 群](https://user-images.githubusercontent.com/16968934/228190818-7dd00845-e9b9-4363-97e5-44c507ac76da.jpeg) / [打赏开发者](https://user-images.githubusercontent.com/16968934/227772541-5bcd52d8-61b7-488c-a203-0330d8006e2b.jpg) / [Donate](#捐赠-donate-usdt)
+[演示 Demo](https://chat-gpt-bot-web.vercel.app/) / [反馈 Issues](https://github.com/heyibear/ChatGPT-Bot-Web/issues) / [加入 Discord](https://discord.gg/zrhvHCr79N) / [QQ 群](https://user-images.githubusercontent.com/16968934/228190818-7dd00845-e9b9-4363-97e5-44c507ac76da.jpeg) / [打赏开发者](https://user-images.githubusercontent.com/16968934/227772541-5bcd52d8-61b7-488c-a203-0330d8006e2b.jpg) / [Donate](#捐赠-donate-usdt)
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fheyibear%2FChatGPT-Bot-Web&env=OPENAI_API_KEY&env=CODE&project-name=ChatGPT-Bot-Web&repository-name=ChatGPT-Bot-Web)
 
@@ -64,7 +64,7 @@ code1,code2,code3
 
 ## 环境变量
 
-> 本项目大多数配置项都通过环境变量来设置。
+> 本项目大多数配置项都通过环境变量来设置，教程：[如何修改 Vercel 环境变量](./docs/vercel-cn.md)。
 
 ### `OPENAI_API_KEY` （必填项）
 
@@ -93,6 +93,10 @@ OpenAI 接口代理 URL，如果你手动配置了 openai 接口代理，请填�
 ### `HIDE_USER_API_KEY` （可选）
 
 如果你不想让用户自行填入 API Key，将此环境变量设置为 1 即可。
+
+### `DISABLE_GPT4` （可选）
+
+如果你不想让用户使用 GPT-4，将此环境变量设置为 1 即可。
 
 ## 开发
 

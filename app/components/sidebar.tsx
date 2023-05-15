@@ -32,6 +32,28 @@ const ChatList = dynamic(async () => (await import("./chat-list")).ChatList, {
   loading: () => null,
 });
 
+function useHotKey() {
+  const chatStore = useChatStore();
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.metaKey || e.altKey || e.ctrlKey) {
+        const n = chatStore.sessions.length;
+        const limit = (x: number) => (x + n) % n;
+        const i = chatStore.currentSessionIndex;
+        if (e.key === "ArrowUp") {
+          chatStore.selectSession(limit(i - 1));
+        } else if (e.key === "ArrowDown") {
+          chatStore.selectSession(limit(i + 1));
+        }
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  });
+}
+
 function useDragSideBar() {
   const limit = (x: number) => Math.min(MAX_SIDEBAR_WIDTH, x);
 
@@ -86,8 +108,9 @@ export function SideBar(props: { className?: string }) {
   // drag side bar
   const { onDragMouseDown, shouldNarrow } = useDragSideBar();
   const navigate = useNavigate();
-
   const config = useAppConfig();
+
+  useHotKey();
 
   return (
     <div
@@ -98,7 +121,7 @@ export function SideBar(props: { className?: string }) {
       <div className={styles["sidebar-header"]}>
         <div className={styles["sidebar-title"]}>ChatGPT Bot</div>
         <div className={styles["sidebar-sub-title"]}>
-          AI assistant by heyibear.
+          Build your own AI assistant.
         </div>
         <div className={styles["sidebar-logo"] + " no-dark"}>
           <ChatGptIcon />
